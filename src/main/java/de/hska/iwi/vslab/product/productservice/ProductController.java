@@ -42,6 +42,17 @@ public class ProductController {
 		Product product = repo.findById(productId).orElse(null);
 		return new ResponseEntity<>(product, HttpStatus.OK);
 	}
+
+	@RequestMapping(value = "/products/{productId}", method = RequestMethod.PUT)
+	public ResponseEntity<?> updateProduct(@RequestBody Product product) {
+		product = repo.save(product);
+		// Set the location header for the newly created resource
+		HttpHeaders responseHeaders = new HttpHeaders();
+		URI newProductUri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(product.getId())
+				.toUri();
+		responseHeaders.setLocation(newProductUri);
+		return new ResponseEntity<>(null, responseHeaders, HttpStatus.CREATED);
+	}
 	
 	@RequestMapping(value = "/products/{productId}", method = RequestMethod.DELETE)
 	public ResponseEntity<Product> deleteUser(@PathVariable Long productId) {
