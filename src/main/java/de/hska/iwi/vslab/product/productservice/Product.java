@@ -16,11 +16,23 @@ public class Product {
 	@Column(name = "PRODUCT_NAME")
 	private String name;
 
+	@Column(name = "PRODUCT_PRICE")
+	private Integer price;
+
+	@Column(name = "PRODUCT_CATEGORYID")
+	private Integer categoryId;
+
+	@Column(name = "PRODUCT_DETAILS")
+	private String details;
+
 	public Product(){}
 			
-	public Product(Long id, String name) {
+	public Product(Long id, String name, Integer price, Integer categoryId, String details) {
 		this.id = id;
 		this.name = name;
+		this.price = price;
+		this.categoryId = categoryId;
+		this.details = details;
 	}
 
 	public Long getId() {
@@ -37,6 +49,27 @@ public class Product {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+	public Integer getPrice() {
+		return price;
+	}
+
+	public void setPrice(Integer price) {
+		this.price = price;
+	}
+	public Integer getCategoryId() {
+		return categoryId;
+	}
+
+	public void setCategoryId(Integer categoryId) {
+		this.categoryId = categoryId;
+	}
+	public String getDetails() {
+		return details;
+	}
+
+	public void setDetails(String details) {
+		this.details = details;
 	}
 
 	@Override
