@@ -16,8 +16,8 @@ public class ProductServiceApplication {
 
 	@PostConstruct
 	public void generateTestData() {
-		productRepository.save(new Product(1000L,"Apfel", 10000, 0, "Eins tolle Banane!"));
-		productRepository.save(new Product(1001L,"Gurke", 11000010, 0, "Die teuerste Gurke der Welt"));
+		productRepository.save(new Product(1000L,"Apfel", 10000, 2, "Eins tolle Banane!"));
+		productRepository.save(new Product(1001L,"Gurke", 11000010, 1, "Die teuerste Gurke der Welt"));
 	}
 
     public static void main(String[] args) {
